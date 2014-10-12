@@ -34,6 +34,10 @@ ENV LANG C.UTF-8
 ENV LANGUAGE C.UTF-8
 ENV LC_ALL C.UTF-8
 
+# Download
+RUN cd /root && wget https://rubygems.org/downloads/bukovina-0.0.3.gem && gem unpack bukovina-0.0.3.gem
+RUN cd /root && wget https://rubygems.org/downloads/drep-0.3.4.gem && gem unpack drep-0.3.4.gem
+
 # Milkode
 RUN milk init
 ADD milkode/ /root/milkode/
@@ -41,6 +45,18 @@ RUN cd /root/milkode && bundle install
 
 # Test1
 RUN cd /root/milkode && bundle exec milk add ../jmail-0.3.0
+
+# Test2
+RUN mkdir /root/z
+RUN ruby -e 'File.open("/root/z/\xff", "w")'
+RUN cd /root/milkode && bundle exec milk add ../z
+
+# Test3
+RUN cd /root/milkode && bundle exec milk add ../bukovina-0.0.3
+
+# Test4
+RUN cd /root/milkode && bundle exec milk add ../drep-0.3.4
+
 
 
 
