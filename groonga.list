@@ -1,0 +1,2 @@
+deb http://packages.groonga.org/debian/ wheezy main
+deb-src http://packages.groonga.org/debian/ wheezy main
