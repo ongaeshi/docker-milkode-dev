@@ -1,5 +1,5 @@
 # ref: https://github.com/nicklegr/docker-milkode
-FROM debian
+FROM ubuntu
 
 # @todo set timezone
 
